@@ -74,20 +74,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (let i = 0; i < dayCount; ){
           const dayTMP = day
+          const iTMP = i
           if (data?.[0]) {
+            console.log(data, i)
             data.forEach(activity => {
 
               let dayStart = moment(`${activity.acf.day_start}`, 'DD:MM:YYYY')
               const dayEnd = moment(`${activity.acf.day_end}`, 'DD:MM:YYYY')
 
-              if (dayStart.format('DDMM') == day.format('DDMM')) {
-                if (dayStart.format('DDMM') == dayEnd.format('DDMM')) {
+              if (dayStart.isSame(day)) {
+                if (dayStart.isSame(dayEnd)) {
                   createDate(dayStart, activity)
                   i++
                   day = day.add(1, 'day')
 
                 } else {
-                  while (dayStart <= dayEnd) {
+                  while (dayStart.isSame(dayEnd) || dayStart.isBefore(dayEnd)) {
                     createDate(dayStart, activity)
                     day = day.add(1, 'day')
 
@@ -107,12 +109,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
           }
 
-          if(day == dayTMP && i < dayCount){
+          if(day.isSame(dayTMP) && i < dayCount && iTMP == i){
             const tmp = calendarSel && dayTemplate.cloneNode(true)
             calendarBody && (tmp.querySelector('.item-calendar__data').innerHTML = day.get('date'))
             calendarBody && (calendarBody.appendChild(tmp))
             i++
             day = day.add(1, 'day')
+            console.log('dayTMP ', i)
 
           }
 
