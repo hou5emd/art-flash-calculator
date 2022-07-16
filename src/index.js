@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   moment().weekday(1)
 
   let calendarSel = false
-  document.querySelector('.calendar__select') && (calendarSel = document.querySelector('.calendar__select'))
+  document.querySelector('.calendar__select.select') && (calendarSel = document.querySelector('.calendar__select.select'))
 
   const calendarBody = calendarSel && document.querySelector('.grid-calendar__body')
   const dayTemplate = calendarSel && calendarBody.querySelector('.item-calendar').cloneNode(true)
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const dayTMP = day
           const iTMP = i
           if (data?.[0]) {
-            console.log(data, i)
+
             data.forEach(activity => {
 
               let dayStart = moment(`${activity.acf.day_start}`, 'DD:MM:YYYY')
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
             calendarBody && (calendarBody.appendChild(tmp))
             i++
             day = day.add(1, 'day')
-            console.log('dayTMP ', i)
+
 
           }
 
@@ -130,12 +130,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const modalWrap = item.childNodes[5]
 
-            item.offsetLeft < item.parentNode.clientWidth / 2 && (modalWrap.style.right = `${modalWrap.style.right - modalWrap.offsetWidth + item.offsetLeft}px`)
-            modalWrap.getBoundingClientRect().left < 0 && (modalWrap.style.right = `${modalWrap.style.right + modalWrap.getBoundingClientRect().left}px`)
-
-            modalWrap.getBoundingClientRect().right < 0 && (modalWrap.style.right = `${modalWrap.style.right - modalWrap.getBoundingClientRect().left}px`)
-
-
+            // item.offsetLeft < item.parentNode.clientWidth / 2 && (modalWrap.style.right = `${modalWrap.style.right - modalWrap.offsetWidth + item.offsetLeft}px`)
+            // modalWrap.getBoundingClientRect().left < 0 && (modalWrap.style.left = `${-modalWrap.getBoundingClientRect().left + modalWrap.getBoundingClientRect().width}px`)
+            //
+            // modalWrap.getBoundingClientRect().right < 0 && (modalWrap.style.right = `${-modalWrap.getBoundingClientRect().left + modalWrap.getBoundingClientRect().width}px`)
+            modalWrap.getBoundingClientRect().left < 0 && (modalWrap.style.left = `${-item.getBoundingClientRect().left}px`)
+            modalWrap.getBoundingClientRect().right < 0 && (modalWrap.style.right = `${-item.getBoundingClientRect().right}px`)
 
             item.addEventListener('click', (e) => {
               const {target} = e
@@ -162,7 +162,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   calendarSel && (calendarSel.value = moment().format("M"))
+  console.log(calendarSel.value)
   const callSelChange = new Event("change", {"bubbles":true, "cancelable":false});
+  calendarSel.addEventListener("change", ()=>{
+    console.log("change")
+  })
   calendarSel && (calendarSel.dispatchEvent(callSelChange))
   setCalendarData(moment().format("MM"))
 

@@ -5,7 +5,7 @@ module.exports = {
     calendar: path.resolve(__dirname, './src/index.js')
   },
   output: {
-    path: path.resolve(__dirname, 'F:/www/artflashmagazine.ru/wp-content/themes/artflash/assets_new/js/'),
+    path: path.resolve(__dirname, 'Y:/www/artflashmagazine.ru/wp-content/themes/artflash/assets_new/js/'),
     filename: '[name].bundle.js',
   },
   module: {

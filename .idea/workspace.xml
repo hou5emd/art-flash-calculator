@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e383a793-f5f6-4255-a421-b069457bae6a" name="Default Changelist" comment="" />
+    <list default="true" id="e383a793-f5f6-4255-a421-b069457bae6a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="27f1CmT43iPIvr4hKwtxWovgBaZ" />
   <component name="ProjectViewState">
@@ -37,7 +44,8 @@
       <workItem from="1649843806674" duration="35470000" />
       <workItem from="1649938700737" duration="3644000" />
       <workItem from="1650031565616" duration="2841000" />
-      <workItem from="1650359851367" duration="5077000" />
+      <workItem from="1650359851367" duration="6336000" />
+      <workItem from="1653917651771" duration="5092000" />
     </task>
     <servers />
   </component>
